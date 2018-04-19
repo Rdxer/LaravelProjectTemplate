@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','phone', 'email', 'password',
     ];
 
     /**
@@ -27,4 +27,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return \App\Model\Profile
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Model\Profile')->first();
+    }
+
+    /**
+     * 自定义用Passport授权登录：用户名+密码
+     * @param $username
+     * @return mixed
+     */
+    public function findForPassport($username)
+    {
+        $user = self::where('email', $username)->first();
+
+        if ($user == null){
+            $user = self::where('phone', $username)->first();
+        }
+
+        return $user;
+    }
+
 }
