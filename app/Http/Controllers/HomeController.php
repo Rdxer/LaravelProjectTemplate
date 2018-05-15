@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Tools\Tools;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $u = Auth::user();
+
+        $u->phone = Tools::rand_word(11);
+
+        $u->saveOrFail();
+
+        dd($u->updated_at);
+
         return view('home');
+
     }
 }
