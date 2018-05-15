@@ -27,13 +27,13 @@ class HomeController extends Controller
     public function index()
     {
 
-//        $u = Auth::user();
+        $u = Auth::user();
 //
 //        $u->phone = Tools::rand_word(11);
 //
 //        dd($u->updated_at);
 
-        return view('home');
+        return view('home',['user'=>$u]);
 
     }
 }
