@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
@@ -28,12 +29,34 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public $appends = ['profile'];
+
+
+    public function getProfileAttribute()
+    {
+        return $this->profile();
+    }
+
     /**
      * @return \App\Model\Profile
      */
     public function profile()
     {
-        return $this->hasOne('App\Model\Profile')->first();
+
+        $prof = $this->hasOne('App\Model\Profile')->first();
+
+        if ($prof == null){
+            $prof = new Profile;
+
+            $prof->user_id = $this->id;
+            $prof->name = $this->name;
+            $prof->email = $this->email;
+            $prof->save();
+        }
+
+        return $prof;
+
     }
 
     /**

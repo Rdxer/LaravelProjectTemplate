@@ -26,16 +26,6 @@ class ProfileController extends BaseController
         $user = $this->auth_user();
         $prof = $user->profile();
 
-        if ($prof == null){
-            $prof = new Profile;
-
-            $prof->user_id = $user->id;
-            $prof->name = $user->name;
-            $prof->email = $user->email;
-            $prof->save();
-            return $user->profile()->first();
-        }
-
         return $prof;
     }
 
