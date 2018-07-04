@@ -1,0 +1,29 @@
+[
+  {
+    "name": "name",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required|min:1",
+    "searchable": true
+  },{
+    "name": "phone",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required|min:11",
+    "searchable": true
+  },
+  {
+    "name": "password",
+    "dbType": "string",
+    "htmlType": "password",
+    "searchable": false,
+    "inForm": false,
+    "inIndex": false
+  },
+  {
+    "name": "email",
+    "dbType": "string",
+    "htmlType": "email",
+    "searchable": true
+  }
+]
