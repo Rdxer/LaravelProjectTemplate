@@ -5,11 +5,18 @@
     "htmlType": "text",
     "validations": "required|min:1",
     "searchable": true
-  },{
+  },
+  {
     "name": "phone",
     "dbType": "string",
     "htmlType": "text",
-    "validations": "required|min:11",
+    "validations": "required|size:11",
+    "searchable": true
+  },
+  {
+    "name": "email",
+    "dbType": "string",
+    "htmlType": "email",
     "searchable": true
   },
   {
@@ -19,11 +26,5 @@
     "searchable": false,
     "inForm": false,
     "inIndex": false
-  },
-  {
-    "name": "email",
-    "dbType": "string",
-    "htmlType": "email",
-    "searchable": true
   }
 ]

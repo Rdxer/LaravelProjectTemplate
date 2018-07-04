@@ -1,0 +1,63 @@
+[
+  {
+    "name": "user_id",
+    "dbType": "integer:unsigned:default,0:foreign,users,id",
+    "htmlType": "text",
+    "relation": "mt1,User,user_id,id"
+  },
+
+  {
+    "name": "title",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+  },
+
+  {
+    "name": "details",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+  },
+
+  {
+    "name": "createat_endpoint_id",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "",
+    "searchable": true
+  },
+
+  {
+    "name": "marker",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "",
+    "searchable": true
+  },
+
+  {
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  },
+  {
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  }
+]
