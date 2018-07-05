@@ -28,3 +28,5 @@ $api->version('v1', function ($api) {
 });
 
 //Route::resource('users', 'UserAPIController');
+
+Route::resource('letters', 'LetterAPIController');

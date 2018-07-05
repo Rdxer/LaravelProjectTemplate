@@ -29,3 +29,6 @@ Route::resource('users', 'UserController')->middleware("role:super-admin");
 Route::get('/users/become_admin/{id}', 'UserController@becomeAdmin')->name('users.become_admin')->middleware("role:super-admin");;
 Route::get('/users/revoke_admin/{id}', 'UserController@revokeAdmin')->name('users.revoke_admin')->middleware("role:super-admin");;
 
+
+
+Route::resource('letters', 'LetterController');

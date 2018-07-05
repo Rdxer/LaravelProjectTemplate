@@ -1,0 +1,68 @@
+[
+  {
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": true,
+    "inForm": false,
+    "inIndex": true
+  },
+  {
+    "name": "user_id",
+    "dbType": "integer:unsigned:default,0:foreign,users,id",
+    "htmlType": "text",
+    "relation": "mt1,User,user_id,id"
+  },
+  {
+    "name": "type",
+    "dbType": "string:default,'info'",
+    "htmlType": "select,Information:info,Warning:warn,Error:err,Team:team,Other:other",
+    "validations": "required",
+    "searchable": true
+  },
+  {
+    "name": "read_at",
+    "dbType": "dateTime",
+    "htmlType": "date",
+    "validations": ""
+  },
+  {
+    "name": "title",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+  },
+  {
+    "name": "details",
+    "dbType": "string",
+    "htmlType": "textarea",
+    "validations": "required",
+    "searchable": true
+  },
+  {
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  },
+  {
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  }
+]
