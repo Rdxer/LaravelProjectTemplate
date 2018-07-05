@@ -8,9 +8,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * Class User
+ * @package App
+ * @version July 5, 2018, 1:27 pm CST
+ *
+ * @property string name
+ * @property string phone
+ * @property string email
+ * @property string password
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable,HasRoles;
+
+
+//    use SoftDeletes;
+//
+//    protected $dates = ['deleted_at'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -76,4 +92,29 @@ class User extends Authenticatable
         return $user;
     }
 
+
+
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'name' => 'string',
+        'phone' => 'string',
+        'email' => 'string',
+        'password' => 'string'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'name' => 'required|min:1',
+        'phone' => 'required|size:11',
+        'email' => 'required|email'
+    ];
 }

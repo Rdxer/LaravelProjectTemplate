@@ -26,3 +26,5 @@ $api->version('v1', function ($api) {
     $api->resource('profile','App\Http\Controllers\API\v1\ProfileController');
 
 });
+
+//Route::resource('users', 'UserAPIController');

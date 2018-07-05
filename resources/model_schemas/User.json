@@ -1,0 +1,64 @@
+[
+  {
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": true,
+    "inForm": false,
+    "inIndex": true
+  },
+  {
+    "name": "name",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required|min:1",
+    "searchable": true
+  },
+  {
+    "name": "phone",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required|size:11",
+    "searchable": true
+  },
+  {
+    "name": "email",
+    "dbType": "string",
+    "htmlType": "email",
+    "validations": "required|email",
+    "searchable": true
+  },
+  {
+    "name": "password",
+    "dbType": "string",
+    "htmlType": "password",
+    "searchable": false,
+    "inForm": false,
+    "inIndex": false
+  },
+  {
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  },
+  {
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+  }
+]
