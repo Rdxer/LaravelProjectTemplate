@@ -37,7 +37,8 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>{{ config("app.name","~") }}</b>
+                <span class="logo-mini"><b>A</b></span>
+                <span class="logo-lg"><b>{{ config("app.name","~") }}</b></span>
             </a>
 
             <!-- Header Navbar -->
@@ -58,7 +59,9 @@
                                 <img src="{{ asset("images/ic_user_light_all_400x400.png") }}"
                                      class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{!! Auth::user()->name !!}</span>
+                                <span class="hidden-xs">{!! Auth::user()->name !!}
+                                    @role("super-admin")<超级管理员>@endrole
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
@@ -79,10 +82,11 @@
                                     </div>
                                     <div class="pull-right">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Sign out
+                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            登出
                                         </a>
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                              style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </div>
@@ -95,15 +99,16 @@
         </header>
 
         <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar')
-        <!-- Content Wrapper. Contains page content -->
+    @include('layouts.sidebar')
+    <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
         </div>
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2016 <a href="http://www.first-edu.com.cn/">第一摩码教育投资（北京）有限公司</a>.</strong> All rights reserved.
+            <strong>Copyright © 2016 <a href="http://www.first-edu.com.cn/">第一摩码教育投资（北京）有限公司</a>.</strong> All rights
+            reserved.
         </footer>
 
     </div>
@@ -152,18 +157,18 @@
             </div>
         </div>
     </div>
-    @endif
+@endif
 
-    <!-- jQuery 3.1.1 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- jQuery 3.1.1 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
-    @yield('scripts')
+@yield('scripts')
 </body>
 </html>

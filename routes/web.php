@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/i_am_a_super_administrator', 'InitServerController@i_am_a_super_administrator')->name('i_am_a_super_administrator');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
