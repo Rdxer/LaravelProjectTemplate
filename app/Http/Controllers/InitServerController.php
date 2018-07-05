@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Letter;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -38,6 +39,12 @@ class InitServerController extends Controller
         app()['cache']->forget('spatie.permission.cache');
 
         auth()->user()->assignRole($super);
+
+        Letter::create([
+            "user_id" => auth()->id(),
+            "title" => "您已成为超级管理员",
+            "details" => ""
+        ]);
 
         return redirect(route('home'));
     }

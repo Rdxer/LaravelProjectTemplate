@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Letter;
+use App\Repositories\LetterRepository;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -175,6 +177,12 @@ class UserController extends AppBaseController
 
         $user->assignRole($admin);
 
+        Letter::create([
+            "user_id" => $user->id,
+            "title" => "您已被".\Auth::user()->name."设置为管理员",
+            "details" => ""
+        ]);
+
         Flash::success('User updated successfully. 添加成功');
 
         return redirect(route('users.index'));
@@ -200,6 +208,12 @@ class UserController extends AppBaseController
         $admin = Role::findByName("admin");
 
         $user->removeRole($admin);
+
+        Letter::create([
+            "user_id" => $user->id,
+            "title" => "您已被".\Auth::user()->name."移除管理员权限",
+            "details" => ""
+        ]);
 
         Flash::success('User updated successfully 移除成功');
 
