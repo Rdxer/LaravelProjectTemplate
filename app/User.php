@@ -93,6 +93,10 @@ class User extends Authenticatable
     }
 
 
+    public function roleDesc(){
+        return $this->getRoleNames()->implode(",");
+    }
+
 
 
     /**

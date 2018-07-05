@@ -28,6 +28,12 @@
     <p>{!! $user->password !!}</p>
 </div>
 
+
+<div class="form-group">
+    {!! Form::label('roleDesc', '身份:') !!}
+    <p>{!! $user->roleDesc() !!}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}

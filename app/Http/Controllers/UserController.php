@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Spatie\Permission\Models\Role;
 
 class UserController extends AppBaseController
 {
@@ -107,7 +108,7 @@ class UserController extends AppBaseController
     /**
      * Update the specified User in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateUserRequest $request
      *
      * @return Response
@@ -152,4 +153,58 @@ class UserController extends AppBaseController
 
         return redirect(route('users.index'));
     }
+
+    /**
+     * become Admin
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function becomeAdmin($id)
+    {
+        $user = $this->userRepository->findWithoutFail($id);
+
+        if (empty($user)) {
+            Flash::error('User not found');
+
+            return redirect(route('users.index'));
+        }
+
+        $admin = Role::findByName("admin");
+
+        $user->assignRole($admin);
+
+        Flash::success('User updated successfully. 添加成功');
+
+        return redirect(route('users.index'));
+    }
+
+    /**
+     * become Admin
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function revokeAdmin($id)
+    {
+        $user = $this->userRepository->findWithoutFail($id);
+
+        if (empty($user)) {
+            Flash::error('User not found');
+
+            return redirect(route('users.index'));
+        }
+
+        $admin = Role::findByName("admin");
+
+        $user->removeRole($admin);
+
+        Flash::success('User updated successfully 移除成功');
+
+        return redirect(route('users.index'));
+    }
+
+
 }
