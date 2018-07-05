@@ -6,7 +6,9 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle"
+                <!--  -->
+                {{--todo 头像设置修改--}}
+                <img src="{{ asset("images/ic_user_light_all_400x400.png") }}" class="img-circle"
                      alt="User Image"/>
             </div>
             <div class="pull-left info">
