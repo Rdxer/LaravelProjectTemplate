@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version July 5, 2018, 3:59 pm CST
  *
- * @property \App\Models\User user
+ * @property \App\User user
  * @property integer user_id
  * @property string type
  * @property dateTime read_at
@@ -64,6 +64,6 @@ class Letter extends Model
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
+        return $this->belongsTo(\App\User::class, 'user_id', 'id');
     }
 }

@@ -81,6 +81,12 @@ class LetterController extends AppBaseController
             return redirect(route('letters.index'));
         }
 
+        if ($letter->read_at == null){
+            $letter->read_at = now();
+        }
+
+        $letter->saveOrFail();
+
         return view('letters.show')->with('letter', $letter);
     }
 

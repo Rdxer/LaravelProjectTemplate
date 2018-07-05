@@ -31,4 +31,4 @@ Route::get('/users/revoke_admin/{id}', 'UserController@revokeAdmin')->name('user
 
 
 
-Route::resource('letters', 'LetterController');
+Route::resource('letters', 'LetterController')->middleware("auth");

@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        dd(\Auth::user()->unreadLetters()->take(5));
         return view('home');
     }
 }
