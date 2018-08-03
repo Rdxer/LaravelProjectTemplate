@@ -24,8 +24,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable,HasRoles,UserLetterTrait;
 
-//    use SoftDeletes;
-//    protected $dates = ['deleted_at'];
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
 
     /**
@@ -98,7 +98,6 @@ class User extends Authenticatable
     }
 
 
-
     /**
      * The attributes that should be casted to native types.
      *
@@ -117,8 +116,9 @@ class User extends Authenticatable
      * @var array
      */
     public static $rules = [
-        'name' => 'required|min:1',
-        'phone' => 'required|size:11',
-        'email' => 'required|email'
+        'name' => 'required|min:1|unique:users',
+        'phone' => 'nullable|size:11|unique:users',
+        'email' => 'required|email|unique:users',
+        'password' => 'nullable|min:6'
     ];
 }

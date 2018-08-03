@@ -20,9 +20,13 @@ class CreateLettersTable extends Migration
             $table->dateTime('read_at')->nullable()->default(null);
             $table->string('title');
             $table->string('details')->nullable();
+
+
+            $table->foreign('user_id')->references('id')->on('users');
+
+
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

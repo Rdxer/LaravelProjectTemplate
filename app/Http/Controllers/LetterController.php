@@ -8,6 +8,7 @@ use App\Repositories\LetterRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -30,6 +31,11 @@ class LetterController extends AppBaseController
     public function index(Request $request)
     {
         $this->letterRepository->pushCriteria(new RequestCriteria($request));
+
+        $this->letterRepository->scopeQuery(function ($model){
+            return $model::where("user_id",Auth::id());
+        });
+
         $letters = $this->letterRepository->all();
 
         return view('letters.index')

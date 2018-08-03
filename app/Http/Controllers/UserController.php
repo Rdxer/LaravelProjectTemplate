@@ -10,6 +10,7 @@ use App\Repositories\UserRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Hash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Spatie\Permission\Models\Role;
@@ -58,7 +59,10 @@ class UserController extends AppBaseController
      */
     public function store(CreateUserRequest $request)
     {
+
         $input = $request->all();
+
+        $input['password']= Hash::make($input['password']);
 
         $user = $this->userRepository->create($input);
 

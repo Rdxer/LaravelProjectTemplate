@@ -36,7 +36,7 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a href="{{ route("home") }}" class="logo">
                 <span class="logo-mini"><b>A</b></span>
                 <span class="logo-lg"><b>{{ config("app.name","~") }}</b></span>
             </a>
@@ -75,7 +75,7 @@
                                          class="img-circle" alt="User Image"/>
                                     <p>
                                         {!! Auth::user()->name !!}
-                                        <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
+                                        <small>Member since {!! Auth::user()->created_at !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
